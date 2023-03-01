@@ -701,6 +701,8 @@ MonoBehaviour:
   jumpBoost: 4
   maxSpeed: 5.5
   maxSprintSpeed: 7
+  coinText: {fileID: 1236540320}
+  scoreText: {fileID: 214766421}
   canJump: 10
 --- !u!136 &238230058
 CapsuleCollider:
@@ -1952,7 +1954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 455879025}
   coinText: {fileID: 1236540320}
-  time: 300
+  time: 100
 --- !u!4 &1946521331
 Transform:
   m_ObjectHideFlags: 0
@@ -2037,6 +2039,8 @@ MonoBehaviour:
   jumpBoost: 5
   maxSpeed: 10
   maxSprintSpeed: 0
+  coinText: {fileID: 0}
+  scoreText: {fileID: 0}
   canJump: 10
 --- !u!136 &2102935100
 CapsuleCollider:

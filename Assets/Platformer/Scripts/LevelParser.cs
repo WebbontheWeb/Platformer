@@ -9,6 +9,8 @@ public class LevelParser : MonoBehaviour
     public GameObject brickPrefab;
     public GameObject questionBoxPrefab;
     public GameObject stonePrefab;
+    public GameObject lavaPrefab;
+    public GameObject goalPrefab;
     public Transform environmentRoot;
 
     // --------------------------------------------------------------------------
@@ -64,6 +66,10 @@ public class LevelParser : MonoBehaviour
                     Instantiate(stonePrefab, new Vector3(column, row, 0f), Quaternion.identity);
                 } else if(letter == '?'){
                     Instantiate(questionBoxPrefab, new Vector3(column, row, 0f), Quaternion.identity);
+                } else if(letter == 'l'){
+                    Instantiate(lavaPrefab, new Vector3(column, row, 0f), Quaternion.identity);
+                } else if(letter == 'g'){
+                    Instantiate(goalPrefab, new Vector3(column, row, 0f), Quaternion.identity);
                 }
                 // Todo - Instantiate a new GameObject that matches the type specified by letter
                 // Todo - Position the new GameObject at the appropriate location by using row and column

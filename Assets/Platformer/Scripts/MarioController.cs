@@ -23,6 +23,8 @@ public class MarioController : MonoBehaviour
     //if value is greater than zero can jump
     public int canJump = 10;
     private bool jump = false;
+    //so Mario can only hit an object once while jumping
+    //private bool jumpHit = false;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +56,6 @@ public class MarioController : MonoBehaviour
         if(Physics.Raycast(transform.position, Vector3.down, halfHeight)){
             canJump = 10;
             GetComponent<Animator>().SetBool("Jumping", false);
-
         } else {
             GetComponent<Animator>().SetBool("Jumping", true);
             canJump--;
@@ -64,8 +65,8 @@ public class MarioController : MonoBehaviour
 
         RaycastHit hit;
         
-        Debug.DrawLine(transform.position, transform.position + Vector3.up * halfHeight, Color.blue, 2f);
-        if (Physics.Raycast(transform.position, Vector3.up, out hit, halfHeight * 2)){
+        Debug.DrawLine(transform.position,  Vector3.up, Color.blue, halfHeight);
+        if (Physics.Raycast(transform.position + new Vector3(0f, 1.7f, 0f), Vector3.up, out hit, 0.09f)){
             if(hit.transform.name == "Question(Clone)"){
                 coins++;
                 coinText.text = $"{coins}";
@@ -74,6 +75,9 @@ public class MarioController : MonoBehaviour
                 Destroy(hit.transform.gameObject);
                 score += 100;
             }
+
+            //jumpHit = true;
+
             Debug.Log($"hit: {hit.transform.name}");
         }
 
@@ -84,7 +88,7 @@ public class MarioController : MonoBehaviour
 
         //Jump
         if(jump){
-            Debug.Log("Jump");
+            //Debug.Log("Jump");
             body.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             jump = false;
         }
