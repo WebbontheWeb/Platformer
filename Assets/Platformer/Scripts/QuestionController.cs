@@ -17,26 +17,26 @@ public class QuestionController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {   
         frame++;
         //changing texture
         switch(frame){
-            case 1:
+            case 5:
                 GetComponent<Renderer>().material.SetTexture("_BaseMap", question1);
                 break;
-            case 12:
+            case 10:
                 GetComponent<Renderer>().material.SetTexture("_BaseMap", question2);
                 break;
-            case 23:
+            case 15:
                 GetComponent<Renderer>().material.SetTexture("_BaseMap", question3);
                 break;
-            case 34:
+            case 20:
                 GetComponent<Renderer>().material.SetTexture("_BaseMap", question4);
                 break;
-            case 45:
+            case 25:
                 GetComponent<Renderer>().material.SetTexture("_BaseMap", question5);
-                frame = -7;
+                frame = 0;
                 break;
         }
 
